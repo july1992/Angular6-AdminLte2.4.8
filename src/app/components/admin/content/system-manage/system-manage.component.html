@@ -1,0 +1,117 @@
+<section class="content-header">
+  <h1>
+    用户管理
+    <small>advanced tables</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a routerLink="work"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a routerLink="manage">系统管理</a></li>
+    <li class="active">用户管理</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+
+          <!--<button class="btn btn-primary"-->
+                   <!--data-toggle="modal" data-target="#myModal">+添加</button>-->
+          <button class="btn btn-primary"
+                  >+添加</button>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example2" class="table table-bordered table-hover vily-line-color">
+            <thead>
+            <tr>
+              <th>学号</th>
+              <th>姓名</th>
+              <th>电话</th>
+              <th>班级</th>
+              <th>年级</th>
+              <th>性别</th>
+              <th>年龄</th>
+              <th>生日</th>
+              <th>地址</th>
+              <th>监护人1</th>
+              <th>监护人1电话</th>
+              <th>监护人2</th>
+              <th>监护人2电话</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let student of students" class="vily-line-color">
+              <td>{{student.cardId}}</td>
+              <td>{{student.name}}</td>
+              <td>{{student.phone}}</td>
+              <td>{{student.classNum}}</td>
+              <td>{{student.grade}}</td>
+              <td>{{student.gender}}</td>
+              <td>{{student.age}}</td>
+              <td>{{student.birthday}}</td>
+              <td>{{student.address}}</td>
+              <td>{{student.guardian1}}</td>
+              <td>{{student.guardian1_phone}}</td>
+              <td>{{student.guardian2}}</td>
+              <td>{{student.guardian2_phone}}</td>
+              <td>
+                <button  data-toggle="modal" data-target="#myModal"
+                         [class.selected]="student === selectorStudent"
+                         (click)="editDialog(student)">+编辑</button>
+                <button>-删除</button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+
+          <!-- /.box-body -->
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">总数{{count}}
+              </div>
+            </div>
+            <div class="col-sm-7">
+              <div class="dataTables_paginate paging_simple_numbers" >
+                <ul class="pagination">
+                  <li class="paginate_button previous disabled" >
+                    <a  aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a></li>
+
+
+                  <li class=""><a  routerLink="manage" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
+                  </li>
+                  <li class="paginate_button active"><a routerLink="manage" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
+                  </li>
+                  <li class="paginate_button "><a routerLink="manage" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
+                  </li>
+                  <li class="paginate_button "><a routerLink="manage" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
+                  </li>
+                  <li class="paginate_button "><a  aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
+                  </li>
+                  <li class="paginate_button "><a  aria-controls="example2" data-dt-idx="5" tabindex="0">...</a>
+                  </li>
+                  <li class="paginate_button "><a  aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
+                  </li>
+                  <li class="paginate_button next" id="example2_next"><a   aria-controls="example2"
+                                                                         data-dt-idx="7"
+                                                                         tabindex="0">Next</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.box -->
+
+
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+
+  </div>
+  <!-- /.row -->
+
+</section>
+<app-edit-dialog [student]="selectorStudent">></app-edit-dialog>

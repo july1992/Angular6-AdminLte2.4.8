@@ -1,0 +1,37 @@
+.vily-center{
+  text-align: center;
+}
+.vily-left{
+  margin-left: 2px;
+  solid: aqua;
+}
+.vily-line-color{
+  border: 1px ;
+  solid-color: #cccccc;
+  solid: #ccc;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #cccccc;
+}
+.dataTables_paginate{
+  margin: 0;
+  white-space: nowrap;
+  text-align:right;
+}
+.dataTables_info{
+  padding-top:12px;
+  white-space:nowrap;
+}
+.pagination{
+  white-space:nowrap;
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
+

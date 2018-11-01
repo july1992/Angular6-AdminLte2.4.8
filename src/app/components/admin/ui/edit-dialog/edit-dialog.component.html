@@ -1,0 +1,101 @@
+<!--<button   data-toggle="modal" data-target="#myModal">开始演示模态框</button>-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog body-color">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">修改事件</h4>
+      </div>
+      <div  *ngIf="student" class="modal-body">
+        <form  class="form-horizontal ng-pristine ng-valid" role="form" >
+          <div class="form-group">
+            <label class="col-sm-4 control-label">学号：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="学号" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.cardId">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">姓名：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="姓名" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">电话：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="电话" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">班级：</label>
+            <div class="col-sm-6">
+              <select class="form-control ng-pristine ng-valid"  [(ngModel)]="student.classNum" [ngModelOptions]="{standalone: true}">
+                <option value="? object:null ?">六年级</option>
+                <option ng-selected="editevent.bizTypeId=='快递'" value="快递">七年级</option>
+                <option ng-selected="editevent.bizTypeId=='快运'" value="快运">八年级</option>
+                <option ng-selected="editevent.bizTypeId=='城配'" value="城配">九年级</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">性别：</label>
+            <div class="col-sm-6">
+              <select class="form-control ng-pristine ng-valid" [(ngModel)]="student.gender" [ngModelOptions]="{standalone: true}">
+                <option value="? object:null ?">XX</option>
+                <option selected="{{student.gender}}=='0'" value="0">男</option>
+                <option selected="{{student.gender}}=='1'" value="1">女</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">生日：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="2000-10-10" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.birthday" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">监护人1：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="监护人1" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.guardian1_phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">监护人1电话：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="监护人1电话" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.guardian1_phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">监护人2：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="监护人2" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.guardian2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">监护人2电话：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control ng-pristine ng-valid" placeholder="监护人2电话" [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="student.guardian2_phone">
+            </div>
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeEditEventButton">关闭</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal"  (click)="saveEditEvent(student)">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
