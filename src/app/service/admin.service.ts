@@ -4,17 +4,14 @@ import {MessageService} from './message.service';
 import {Observable, of} from 'rxjs';
 import {RequestData} from '../bean/RequestData';
 import {catchError, tap} from 'rxjs/operators';
-import {Login} from '../bean/login';
-import {Student} from '../bean/student';
+import {appUrl, httpOptions} from '../app.component';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  private heroesUrl = 'http://192.168.43.151:8089/vily/';
+  private heroesUrl = appUrl+'student/user/';
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService
@@ -31,10 +28,10 @@ export class AdminService {
       return of(result as T);
     };
   }
-  login(login: Login ): Observable<RequestData> {
-    const urlLogin = this.heroesUrl + 'login' ;
-    return this.http.post(urlLogin, login, httpOptions).pipe(
-      tap(_ => this.log(`登录的用户名 phone=${login.phone}`)),
+  login(number:string,psw:string ): Observable<RequestData> {
+    const urlLogin = this.heroesUrl + 'login'+'?number='+number+'&psw='+psw ;
+    return this.http.get(urlLogin, httpOptions).pipe(
+      tap(_ => this.log(`登录的用户名 number=${number}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }

@@ -1,1 +1,47 @@
-<router-outlet></router-outlet>
+<div class="wrapper " *ngIf="!showLogin">
+
+
+  <app-header></app-header>
+
+  <app-left-side></app-left-side>
+
+  <div class="content-wrapper">
+
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>
+
+<div class="login-box" *ngIf="showLogin">
+  <div class="login-logo">
+    <b>Seguimiento</b> SENA
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">请开始你的表演</p>
+
+    <!--<form>-->
+    <div class="form-group has-feedback">
+      <input #number type="text" class="form-control" placeholder="请输入学号">
+      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+      <input #userPsw type="password" class="form-control" placeholder="请输入密码">
+      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    <div class="row">
+      <!-- /.col -->
+      <div class="col-xs-offset-8 col-xs-4">
+        <button (click)="login(number.value,userPsw.value)" class="btn btn-primary btn-block btn-flat">登录</button>
+      </div>
+      <!-- /.col -->
+    </div>
+    <!--</form>-->
+
+    <a href="#">刷新</a>
+    <br>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>

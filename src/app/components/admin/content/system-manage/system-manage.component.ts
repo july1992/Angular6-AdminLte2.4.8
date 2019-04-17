@@ -21,16 +21,16 @@ export class SystemManageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this .adminService.getSutdents(this.teacher_id, this .page).subscribe(
-      RequestData => {
-       if ( RequestData.state ) {
-         console.log( RequestData.data);
-          this.students =  RequestData.data;
-         this.count = RequestData.count  ;
-
-       }
-    }
-    );
+    // this .adminService.getSutdents(this.teacher_id, this .page).subscribe(
+    //   RequestData => {
+    //    if ( RequestData.state ) {
+    //      console.log( RequestData.data);
+    //       this.students =  RequestData.data;
+    //      this.count = RequestData.count  ;
+    //
+    //    }
+    // }
+    // );
   }
   editDialog(student: Student): void {
     this.selectorStudent = student;
