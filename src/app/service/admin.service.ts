@@ -35,13 +35,13 @@ export class AdminService {
       catchError(this.handleError<any>('updateHero'))
     );
   }
-  getSutdents(teacher_id: string, page: number ): Observable<RequestData> {
-    const urlStudents = this.heroesUrl + 'getStudents' + '?teacher_id=' + teacher_id + '&page=' + page;
+  getSutdents(number: string, page: number ): Observable<RequestData> {
+    const urlStudents = this.heroesUrl + 'getStudents' + '?number=' + 20190417001 + '&page=' + page;
     // const data = {userName : teacher_id};
     //
     console.log('------urlStudents' + urlStudents);
     return this.http.get<RequestData>(urlStudents, httpOptions).pipe(
-      tap(_ => this.log(`登录的用户名 phone=${teacher_id}`)),
+      tap(_ => this.log(`登录的用户名 phone=${number}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }

@@ -68,6 +68,7 @@ export class AppComponent implements OnInit {
           requetData.data;
           self.cookieService.set('uid', (requetData as any).data.id);
           self.cookieService.set('userName', (requetData as any).data.userName);
+          self.cookieService.set('number', (requetData as any).data.number);
 
           window.location.reload();
 

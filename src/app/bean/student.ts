@@ -1,10 +1,10 @@
 export class Student {
   id: string;
-  teacher_id: string;
+  userName: string;
   cardId: number;
   name: string;
   gender: number;
-  icon: string;
+  number: string;
   birthday: string;
   phone: string;
   address: string;
